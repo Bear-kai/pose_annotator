@@ -4,6 +4,7 @@ This repo originates from the [BOP]((http://bop.felk.cvut.cz)) benchmark for 6D 
 I found it hard and unnatural to move the model by keyboard. 
 Thus I modified it to support point picking and then the least square optimation can be conducted before the ICP refinement.
 
+https://user-images.githubusercontent.com/10415005/177565091-3b04f5f3-01b3-473b-8a5c-f6e16842ad81.mp4
 
 ## Installation
 
