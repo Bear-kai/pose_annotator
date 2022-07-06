@@ -1,6 +1,6 @@
 # Pose Annotator Toolkit
 
-This repo originates from the [BOP]((http://bop.felk.cvut.cz)) benchmark for 6D object pose estimation.
+This repo originates from the [BOP](http://bop.felk.cvut.cz) benchmark for 6D object pose estimation.
 I found it hard and unnatural to move the model by keyboard. 
 Thus I modified it to support point picking and then the least square optimation can be conducted before the ICP refinement.
 
