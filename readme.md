@@ -50,3 +50,14 @@ Sometimes it will be convenient to use [pyinstaller](https://pyinstaller.org/en/
 pyinstaller 6D_pose_annotator_v2.spec
 ```
 Then you can run the .exe file (double click, or drag it into a cmd window) in the generated `dist` directory.
+
+## File Structure
+```bash
+pose_annotator
+├── 6D_pose_annotator_v2.py      # the main script	
+├── 6D_pose_annotator_v2.spec	 # used for pyinstaller
+├── resources		             # used for pyinstaller
+|   └── ...                      # copy from .../site-packages/open3d
+├── readme.md
+└── requirements.txt
+```
