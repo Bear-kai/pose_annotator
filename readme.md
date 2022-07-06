@@ -44,6 +44,11 @@ Distance/angle big or small:
 
 `R` or **ICP Refine** button will call ICP algorithm to do local refinement of the annotation.
 
+About point picking:
+- At least three point pairs are selected.
+- For example, we select 3 points (#1~#3) on the added model, and 3 points (#4~#6) on the scene.
+- Then their order should be the same, meaning that #1 matches to #4, #2 matches to #5, and #3 matches to #6. 
+
 ## Pyinstaller
 
 Sometimes it will be convenient to use [pyinstaller](https://pyinstaller.org/en/stable/) to bundle the toolkit and all its dependencies into a single package. Just run:
@@ -56,8 +61,8 @@ Then you can run the .exe file (double click, or drag it into a cmd window) in t
 ```bash
 pose_annotator
 ├── 6D_pose_annotator_v2.py      # the main script	
-├── 6D_pose_annotator_v2.spec	 # used for pyinstaller
-├── resources		             # used for pyinstaller
+├── 6D_pose_annotator_v2.spec    # used for pyinstaller
+├── resources                    # used for pyinstaller
 |   └── ...                      # copy from .../site-packages/open3d
 ├── readme.md
 └── requirements.txt
