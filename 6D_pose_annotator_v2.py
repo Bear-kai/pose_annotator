@@ -835,7 +835,7 @@ class AppWindow:
 
         # change the above two lines as follows：
         aabb = self._annotation_scene.annotation_scene.get_axis_aligned_bounding_box()
-        init_trans[0, 3] = aabb.min_bound[0] - 0.15
+        init_trans[0, 3] = aabb.min_bound[0] - 0.15   # 0.12
         init_trans[1, 3] = center[1]                  # aabb.min_bound[1] * 0.5
         init_trans[2, 3] = center[2] - 0.2
 
@@ -916,8 +916,14 @@ class AppWindow:
                                            add_downsampled_copy_for_fast_rendering=True)   # args：name, Geometry/Geometry3D, material, bool, from open3d.visualization.rendering.Open3DScene.add_geometry()
             bounds = geometry.get_axis_aligned_bounding_box()   
             self._scene.setup_camera(60, bounds, bounds.get_center())   # setup_camera???  Overloaded func: open3d.visualization.gui.SceneWidget.setup_camera(field_of_view, model_bounds, center_of_rotation) 
-            center = np.array([0, 0, 0])            
-            eye = center + np.array([0, 0, -0.1])   # 0.5
+            
+            # way1: better to see the image plane
+            center = np.array([0, 0, 0])
+            eye = center + np.array([0, 0, -0.1])  # -0.5
+            # way2: better to see the 3D structure
+            # center = bounds.get_center()                            
+            # eye = center + np.array([0, 0, -1.2]) 
+
             up = np.array([0, -1, 0])
             self._scene.look_at(center, eye, up)                        # sets the camera view so that the camera is located at ‘eye’, pointing towards ‘center’, and oriented so that the up vector is ‘up’
                                                                         
