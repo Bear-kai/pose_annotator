@@ -64,6 +64,9 @@ pose_annotator
 ├── 6D_pose_annotator_v2.spec    # used for pyinstaller
 ├── resources                    # used for pyinstaller
 |   └── ...                      # copy from .../site-packages/open3d
+├── YCB_bop_fake                 # sample data to test on
+|   └── ...                      
 ├── readme.md
+├── open3d.ico
 └── requirements.txt
 ```
