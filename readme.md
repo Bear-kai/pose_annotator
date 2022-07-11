@@ -27,6 +27,10 @@ python 6D_pose_annotator_v2.py
 ```
 Then set data_root, data_split, split_type, scene_num and image_num in the right panel. **Note that only by setting image_num can the scene be loaded**.
 
+### Notice
+- It would be better to use meaningful names for the `.ply` model. The provided `YCB_bop_fake` dataset shows a counter-example that you would have to remember/query the correspondence between the model ID and its category name to add a mesh into the scene. Therefore, it is recommanded to use meanfuling model names and then provide a file named `models_names.json` as shown in `YCB_bop_fake/models/`.
+- If you want to test on your own data, just organize them similar as the file structure and image name style of the provided `YCB_bop_fake` dataset.
+
 ### Interface:
 
 The keyboard interface is kept but with different key-func pair.
