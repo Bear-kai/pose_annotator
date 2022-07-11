@@ -645,7 +645,7 @@ class AppWindow:
                 transform_cam_to_object = obj.transform                       # wrong name? should be obj-->cam
                 translation = list(transform_cam_to_object[0:3, 3] * 1000)    # convert meter to mm
                 model_names = self.load_model_names()
-                obj_id = model_names.index(obj.obj_name[:-2]) + 1             # assuming max number of object of same object 10
+                obj_id = model_names.index(obj.obj_name[:-2]) + 1             # assuming max number of object of same object 10； # note that the operation '+ 1' here and the '- 1' in self.scene_load() are only for compatibility with the "obj_id" in scene_gt.json of YCB-V dataset; The two operations can just be removed together.
                 obj_data = {
                     "cam_R_m2c": transform_cam_to_object[0:3, 0:3].tolist(),  # rotation matrix
                     "cam_t_m2c": translation,                                 # translation
@@ -823,8 +823,10 @@ class AppWindow:
         meshes = self._annotation_scene.get_objects()    
         meshes = [i.obj_name for i in meshes]
 
+        # object_geometry = o3d.io.read_point_cloud(
+        #     self.scenes.objects_path + '/obj_' + f'{self._meshes_available.selected_index + 1:06}' + '.ply')
         object_geometry = o3d.io.read_point_cloud(
-            self.scenes.objects_path + '/obj_' + f'{self._meshes_available.selected_index + 1:06}' + '.ply')
+            self.scenes.objects_path + '/' +  self._meshes_available.selected_value  + '.ply')  # change to support models_names.json
         object_geometry.points = o3d.utility.Vector3dVector(
             np.array(object_geometry.points) / 1000)  # convert mm to meter
         
@@ -893,6 +895,8 @@ class AppWindow:
             depth_scale = data[str(image_num)]['depth_scale']
 
         rgb_path = os.path.join(scene_path, 'rgb', f'{image_num:06}' + '.jpg')      # '.png'
+        if not os.path.isfile(rgb_path):
+            rgb_path = os.path.join(scene_path, 'rgb', f'{image_num:06}' + '.png')
         rgb_img = cv2.imread(rgb_path)
         depth_path = os.path.join(scene_path, 'depth', f'{image_num:06}' + '.png')
         depth_img = cv2.imread(depth_path, -1)
@@ -942,8 +946,11 @@ class AppWindow:
                 active_meshes = list()
                 for obj in scene_data:
                     # add object to annotation_scene object
+                    # obj_geometry = o3d.io.read_point_cloud(
+                    #     os.path.join(self.scenes.objects_path, 'obj_' + f"{int(obj['obj_id']):06}" + '.ply'))
                     obj_geometry = o3d.io.read_point_cloud(
-                        os.path.join(self.scenes.objects_path, 'obj_' + f"{int(obj['obj_id']):06}" + '.ply'))
+                        os.path.join(self.scenes.objects_path, model_names[ int(obj['obj_id']) - 1 ] + '.ply')) # to support models_names.json, note that the operation '- 1' here and the '+ 1' in self._on_generate() are only for compatibility with the "obj_id" in scene_gt.json of YCB-V dataset; The two operations can be just removed together. 
+                        
                     obj_geometry.points = o3d.utility.Vector3dVector(
                         np.array(obj_geometry.points) / 1000)            # convert mm to meter
                     model_name = model_names[int(obj['obj_id']) - 1]

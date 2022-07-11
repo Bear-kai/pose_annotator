@@ -1,0 +1,86 @@
+{
+  "0": {
+	"name": "obj_000001",
+	"your_def": "002_master_chef_can"
+  },
+  "1": {
+    "name": "obj_000002",
+	"your_def": "003_cracker_box"
+  },
+  "2": {
+    "name": "obj_000003",
+	"your_def": "004_sugar_box"
+  },
+  "3": {
+    "name": "obj_000004",
+	"your_def": "005_tomato_soup_can"
+  },
+  "4": {
+    "name": "obj_000005",
+	"your_def": "006_mustard_bottle"
+  },
+  "5": {
+    "name": "obj_000006",
+	"your_def": "007_tuna_fish_can"
+  },
+  "6": {
+    "name": "obj_000007",
+	"your_def": "008_pudding_box"
+  },
+  "7": {
+    "name": "obj_000008",
+	"your_def": "009_gelatin_box"
+  },
+  "8": {
+    "name": "obj_000009",
+	"your_def": "010_potted_meat_can"
+  },
+  "9": {
+    "name": "obj_000010",
+	"your_def": "011_banana"
+  },
+  "10": {
+    "name": "obj_000011",
+	"your_def": "019_pitcher_base"
+  },
+  "11": {
+    "name": "obj_000012",
+	"your_def": "021_bleach_cleanser"
+  },
+  "12": {
+    "name": "obj_000013",
+	"your_def": "024_bowl"
+  },
+  "13": {
+    "name": "obj_000014",
+	"your_def": "025_mug"
+  },
+  "14": {
+    "name": "obj_000015",
+	"your_def": "035_power_drill"
+  },
+  "15": {
+    "name": "obj_000016",
+	"your_def": "036_wood_block"
+  },
+  "16": {
+    "name": "obj_000017",
+	"your_def": "037_scissors"
+  },
+  "17": {
+    "name": "obj_000018",
+	"your_def": "040_large_marker"
+  },
+  "18": {
+    "name": "obj_000019",
+	"your_def": "051_large_clamp"
+  },
+  "19": {
+    "name": "obj_000020",
+	"your_def": "052_extra_large_clamp"
+  },
+  "20": {
+    "name": "obj_000021",
+	"your_def": "061_foam_brick"
+  }
+}
